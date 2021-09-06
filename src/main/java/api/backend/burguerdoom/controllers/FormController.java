@@ -22,7 +22,7 @@ public class FormController {
 	@Autowired
 	IFormService formService;
 
-	@PostMapping
+	@PostMapping("/save")
 	public ResponseEntity<SaveDataResponse> saveForm(@RequestBody FormDao form) {
 
 		SaveDataResponse response = formService.saveFormInDB(form);
@@ -31,7 +31,7 @@ public class FormController {
 				: new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@GetMapping
+	@GetMapping("/list")
 	public ResponseEntity<List<FormDao>> listsForms() {
 
 		List<FormDao> response = formService.listAllForms();
