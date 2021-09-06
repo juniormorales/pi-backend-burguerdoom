@@ -9,6 +9,14 @@ spring:
     username: rmkhvrkmqqkspj
     password: 888256f8f48e8a4ee056b4b711f34169e80c5c2b35c6ffc85d792c05fa38bddd
     driverClassName: org.postgresql.Driver
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 10
+      idleTimeout: 60000
+      poolName: SpringBootJPAHikariCP
+      maxLifetime: 200000
+      connectionTimeout: 30000
 
 server:
   port: 2000
+  
