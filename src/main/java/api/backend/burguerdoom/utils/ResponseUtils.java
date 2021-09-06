@@ -33,7 +33,7 @@ public class ResponseUtils {
 		return SaveDataResponse.builder()
 				.status(1)
 				.isError(false)
-				.description("Datos carrito registrado correctamente")
+				.description("SU ORDEN YA HA SIDO REGISTRADA, EN UNOS MOMENTOS LLAMAREMOS AL NUMERO QUE USTED HA REGISTRADO")
 				.build();
 	}
 	
