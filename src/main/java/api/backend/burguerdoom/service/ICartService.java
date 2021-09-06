@@ -1,11 +1,13 @@
 package api.backend.burguerdoom.service;
 
+import java.util.List;
+
 import api.backend.burguerdoom.controllers.responses.SaveDataResponse;
 import api.backend.burguerdoom.repo.model.CartDao;
 
 public interface ICartService {
 	
 	SaveDataResponse saveCartInDb(CartDao cart);
-	CartDao findCartByUser(String correo);
+	List<CartDao> findCartsByUser(String correo);
 
 }

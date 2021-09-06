@@ -1,5 +1,7 @@
 package api.backend.burguerdoom.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,7 @@ public class CartController {
 	@Autowired
 	ICartService cartService;
 	
-	@PostMapping
+	@PostMapping("/save")
 	public ResponseEntity<SaveDataResponse> saveDataCart(@RequestBody CartDao cart) {
 		SaveDataResponse response = cartService.saveCartInDb(cart);
 
@@ -30,9 +32,9 @@ public class CartController {
 	}
 	
 	@GetMapping("/byUser")
-	public ResponseEntity<CartDao> findCartByUser(@RequestParam String correo){
+	public ResponseEntity<List<CartDao>> findCartByUser(@RequestParam String correo){
 		try {
-			CartDao cart = cartService.findCartByUser(correo);
+			List<CartDao> cart = cartService.findCartsByUser(correo);
 			return new ResponseEntity<>(cart,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

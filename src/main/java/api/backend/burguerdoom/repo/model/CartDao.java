@@ -1,15 +1,15 @@
 package api.backend.burguerdoom.repo.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -24,12 +24,18 @@ public class CartDao {
 	
 	private String nombreyapellido;
 	
+	@Column(nullable=false)
 	private String telefono;
+	
+	@Column(nullable=false)
+	private String direccion;
 	
 	@Column(unique = true, nullable=true)
 	private String correo;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+	private LocalDateTime fecha;
+	
+	@Transient
 	private List<ProductoPedidoDao> productos;
 	
 }
