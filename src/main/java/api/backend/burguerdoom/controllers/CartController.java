@@ -27,7 +27,7 @@ public class CartController {
 	public ResponseEntity<SaveDataResponse> saveDataCart(@RequestBody CartDao cart) {
 		SaveDataResponse response = cartService.saveCartInDb(cart);
 
-		return response.getIsError() ? new ResponseEntity<>(response, HttpStatus.OK)
+		return !response.getIsError() ? new ResponseEntity<>(response, HttpStatus.OK)
 				: new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	

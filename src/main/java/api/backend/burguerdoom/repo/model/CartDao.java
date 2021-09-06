@@ -30,7 +30,6 @@ public class CartDao {
 	@Column(nullable=false)
 	private String direccion;
 	
-	@Column(unique = true, nullable=true)
 	private String correo;
 	
 	private LocalDateTime fecha;
